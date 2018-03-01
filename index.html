@@ -61,15 +61,15 @@
               <h1>{{title}}</h1>
               <div class="byline">
                 By <address><a href="{{{authorUrl}}}">{{author}}</a></address>
-                published <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
+                <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
               </div>
             </header>
-            <section class="article-body clearfix"></section>
-            {{{body}}}
-            <a href="#" class="teaser-toggle read-on">Read on &#8680;</a>
-            <a href="#" class="teaser-toggle show-less">Show less &#8678;</a>
-          </article>
-      </template>
+            <section class="article-body clearfix">
+              {{{body}}}
+            </section>
+            <a href="#" class="read-on">Read on &rarr;</a>
+            </article>
+        </template>
 
       </section>
       <section id="about" class="tab-content">
