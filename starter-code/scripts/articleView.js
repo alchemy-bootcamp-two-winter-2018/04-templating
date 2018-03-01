@@ -5,8 +5,8 @@ const articleView = {};
 // TODONE: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
 
 // COMMENT: How do arrow functions affect the context of "this"? How did you determine if a function could be refactored?
-// They make 'this' refer to whatever is passed into them. I used arrow functions on functions that didn't use 'this,' because it
-// would change the function to be called by nothing, and therefore 'window.'
+// They make 'this' refer to whatever is passed into them. I didn't use the => command on callback functions because I needed
+// them to refer to the object to which they were attached.
 
 articleView.populateFilters = () => {
     $('article').each((element) => {
