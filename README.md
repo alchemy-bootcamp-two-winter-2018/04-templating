@@ -11,7 +11,7 @@ Lab 04: HTML Templating w/HandlebarsJS
 ----
 
 ## Submission Instructions
-Follow the submission instructions outlined in our [submit-process repo](https://github.com/acl-301d-fall-2017/submit-process).
+Follow the submission instructions outlined in our [submit-process repo](https://github.com/alchemy-bootcamp-two-winter-2018/submit-process).
 
 ## Resources  
 [Handlebars Docs](http://handlebarsjs.com/)
