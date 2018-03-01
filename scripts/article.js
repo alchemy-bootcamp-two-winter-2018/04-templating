@@ -1,8 +1,6 @@
 'use strict';
 
 const articles = [];
-const templateElement = $('#article-template');
-const template = Handlebars.compile(templateElement.html());
 
 function Article(rawDataObj) {
     Object.keys(rawDataObj).forEach(key => {
@@ -19,10 +17,10 @@ function Article(rawDataObj) {
 
 Article.prototype.toHtml = function () {
     // TODOne: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
-    // Done - as in Marty's example - on line 5
-
+    const template = $('#article-template').html();
+    const templateRender = Handlebars.compile(template);
     // TODOne: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
-    return template(this);
+    return templateRender(this);
 };
 
 // COMMENT: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
