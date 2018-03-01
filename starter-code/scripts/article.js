@@ -1,7 +1,5 @@
 'use strict';
 
-// const articles = [];
-
 function Article(rawDataObj) {
     this.author = rawDataObj.author;
     this.authorUrl = rawDataObj.authorUrl;
@@ -32,14 +30,6 @@ Article.prototype.toHtml = function () {
 rawData.sort((a, b) => {
     return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
-
-// rawData.forEach(articleObject => {
-//     articles.push(new Article(articleObject));
-// });
-
-// articles.forEach(article => {
-//     $('#articles').append(article.toHtml());
-// });
 
 rawData.forEach(articleData => {
     const newArticle = new Article(articleData);

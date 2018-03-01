@@ -17,7 +17,7 @@ articleView.populateFilters = function() {
                 $('#author-filter').append(optionTag);
             }
 
-            val = $(this).attr('data-category');
+            val = $(this).attr('data-js-category');
             optionTag = `<option value="${val}">${val}</option>`;
             if ($(`#category-filter option[value="${val}"]`).length === 0) {
                 $('#category-filter').append(optionTag);
@@ -27,10 +27,10 @@ articleView.populateFilters = function() {
 };
 
 articleView.handleAuthorFilter = function() {
-    $('#author-filter').on('change', function() {
+    $('#author-filter').on('change', function () {
         if ($(this).val()) {
             $('article').hide();
-            $(`article[data-author="${$(this).val()}"]`).fadeIn();
+            $(`article[data-js-author="${$(this).val()}"]`).fadeIn();
         } else {
             $('article').fadeIn();
             $('article.template').hide();
@@ -40,10 +40,10 @@ articleView.handleAuthorFilter = function() {
 };
 
 articleView.handleCategoryFilter = function() {
-    $('#category-filter').on('change', function() {
+    $('#category-filter').on('change', function () {
         if ($(this).val()) {
             $('article').hide();
-            $(`article[data-category="${$(this).val()}"]`).fadeIn();
+            $(`article[data-js-category="${$(this).val()}"]`).fadeIn();
         } else {
             $('article').fadeIn();
             $('article.template').hide();
@@ -63,7 +63,7 @@ articleView.handleMainNav = function() {
 
 articleView.setTeasers = function() {
     $('.article-body *:nth-of-type(n+2)').hide();
-    $('article').on('click', 'a.read-on', function(e) {
+    $('article').on('click', 'a.read-on', (e) => {
         e.preventDefault();
         if ($(this).text() === 'Read on →') {
             $(this).parent().find('*').fadeIn();
@@ -78,7 +78,7 @@ articleView.setTeasers = function() {
     });
 };
 
-$(document).ready(function() {
+$(document).ready(() => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
     articleView.handleAuthorFilter();
