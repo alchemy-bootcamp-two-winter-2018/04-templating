@@ -30,7 +30,7 @@ articleView.handleAuthorFilter = function() {
     $('#author-filter').on('change', function() {
         if ($(this).val()) {
             $('article').hide();
-            $(`article[data-author="${$(this).val()}"]`).fadeIn();
+            $(`article[data-js-author="${$(this).val()}"]`).fadeIn();
         } else {
             $('article').fadeIn();
             $('article.template').hide();
@@ -43,7 +43,7 @@ articleView.handleCategoryFilter = function() {
     $('#category-filter').on('change', function() {
         if ($(this).val()) {
             $('article').hide();
-            $(`article[data-category="${$(this).val()}"]`).fadeIn();
+            $(`article[data-js-category="${$(this).val()}"]`).fadeIn();
         } else {
             $('article').fadeIn();
             $('article.template').hide();
