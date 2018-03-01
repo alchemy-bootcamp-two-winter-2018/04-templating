@@ -3,12 +3,9 @@
 const articles = [];
 
 function Article(rawDataObj) {
-    this.author = rawDataObj.author;
-    this.authorUrl = rawDataObj.authorUrl;
-    this.title = rawDataObj.title;
-    this.category = rawDataObj.category;
-    this.body = rawDataObj.body;
-    this.publishedOn = rawDataObj.publishedOn;
+    Object.keys(rawDataObj).forEach(key => {
+        this[key] = rawDataObj[key];
+    });
 
     // REVIEW: If your template will use properties that aren't on the object yet, add them.
     // Since your template can't hold any JS logic, we need to execute the logic here.
