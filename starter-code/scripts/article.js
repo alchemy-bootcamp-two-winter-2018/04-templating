@@ -2,6 +2,7 @@
 
 const articles = [];
 
+// TODOne: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
 const templateElement = $('#article');
 const template = Handlebars.compile(templateElement.html());
 
@@ -22,11 +23,8 @@ function Article(rawDataObj) {
 }
 
 Article.prototype.toHtml = function () {
-    // TODOne: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
-    return template(this);
-
     // TODOne: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
-
+    return template(this);
 };
 
 // COMMENT: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
