@@ -1,12 +1,9 @@
 'use strict';
 
 function Article(rawDataObj) {
-    this.author = rawDataObj.author;
-    this.authorUrl = rawDataObj.authorUrl;
-    this.title = rawDataObj.title;
-    this.category = rawDataObj.category;
-    this.body = rawDataObj.body;
-    this.publishedOn = rawDataObj.publishedOn;
+    Object.keys(rawDataObj).forEach(key => {
+        this[key] = rawDataObj[key];
+    });
 
     // REVIEW: If your template will use properties that aren't on the object yet, add them.
     // Since your template can't hold any JS logic, we need to execute the logic here.
@@ -17,9 +14,8 @@ function Article(rawDataObj) {
 }
 
 Article.prototype.toHtml = function () {
-    // TODOne: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
-    const templateElement = $('#article-template');
-    const template = Handlebars.compile(templateElement.html());
+    // TODOne: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.;
+    const template = Handlebars.compile($('#article-template').html());
 
     // TODOne: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
     return template(this);
