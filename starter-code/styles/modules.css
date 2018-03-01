@@ -1,0 +1,56 @@
+nav ul {
+    display: none;
+    list-style-type: none;
+    padding-left: 0;
+}
+#menu li a{
+    text-decoration: none;
+    color: grey;
+}
+#menu li{
+    font-size: 1.5em;
+    border-bottom: 1px solid grey;
+    padding-bottom: .4em;
+    padding-top: .4em;
+}
+
+.byline {
+    color: grey;
+}
+.byline address{
+    display: inline;
+
+}
+address a{
+    text-decoration: none;
+    color: grey;
+}
+
+.icon-menu:hover + #menu {
+    display: block;
+}
+
+@media screen and (min-width: 640px){
+    .article-body{
+        display: inline-block;
+    }
+    .icon-menu{
+        display: none;
+    }
+    #menu{
+        display: block;
+    }
+    #menu li{
+        display: inline;
+        border-bottom: none;
+        padding-left: 1em;
+    }
+    .pull-right{
+        float: right;
+    }
+    .pull-left{
+        float: left;
+    }
+
+}
+
