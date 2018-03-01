@@ -56,7 +56,7 @@
         -->
 
         <template id="article-template">
-          <article>
+          <article data-category="{{category}}" data-author="{{author}}">
             <header>
               <h1>{{title}}</h1>
               <div class="byline">
@@ -68,6 +68,7 @@
               {{{body}}}
             </section>
             <a href="#" class="read-on">Read on &rarr;</a>
+            <hr>
             </article>
         </template>
 
