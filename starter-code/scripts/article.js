@@ -6,7 +6,7 @@ const articles = [];
 function Article(rawDataObj) {
     Object.keys(rawDataObj).forEach((key) => {
         this[key] = rawDataObj[key];
-    },
+    }),
     // REVIEW: If your template will use properties that aren't on the object yet, add them.
     // Since your template can't hold any JS logic, we need to execute the logic here.
     // The result is added to the object as a new property, which can then be referenced by key in the template.
