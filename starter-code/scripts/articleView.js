@@ -15,6 +15,7 @@ articleView.populateFilters = function() {
 
             if ($(`#author-filter option[value="${val}"]`).length === 0) {
                 $('#author-filter').append(optionTag);
+                $(this).attr('data-author', val);
             }
 
             val = $(this).attr('data-category');

@@ -19,13 +19,13 @@ function Article(rawDataObj) {
 }
 
 Article.prototype.toHtml = function () {
-    // TODO: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
+    // TODOne: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
     const hbTemplateTag = $('#article-template');
     const hbTemplate = Handlebars.compile(hbTemplateTag.html());
     const hbInstance = hbTemplate(this);
     return hbInstance;
 
-    // TODO: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
+    // TODOne: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
 
 };
 

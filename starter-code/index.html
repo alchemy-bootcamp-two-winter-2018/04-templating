@@ -52,17 +52,19 @@
             - Insert placeholder keys for Handlebars to replace.
             - If your object doesn't have values you need yet, you can add those properties in the model.
         -->
-      <template id="article-template">
+      <template id="article-template" class="template">
+        <article data-category='{{category}}'>
         <div>
           <header>
           <h1>{{title}}</h1>
           <div class="byline">
-            By <address><a href={{authorUrl}}>{{author}}</a></address>
+            By <address><a href='{{authorUrl}}'>{{author}}</a></address>
             {{publishStatus}}
           </div>
         </header>
         <section class="article-body">{{{body}}}</section>
         </div>
+        </article>
       </template>
 
       </section>
