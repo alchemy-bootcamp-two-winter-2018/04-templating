@@ -53,8 +53,8 @@
             - If your object doesn't have values you need yet, you can add those properties in the model.
         -->
 
-        <template id="article-template">
-          <article data-js-category="category">
+        <template id="article" class="template">
+          <article data-category='{{category}}' data-author='{{author}}'>
             <header>
               <h1>{{title}}</h1>
               <div class="byline">
@@ -66,18 +66,6 @@
             <a href="#" class="read-on">Read on &rarr;</a>
           </article>
       </template>
-
-        <!-- <template id="article-template">
-          <div>
-            <h2>{{name}}</h2>
-            <p>Part of: {{city}}</p>
-            <p>Current population: {{formattedPopulation}}</p>
-            <p>A {{size}} city</p>
-            <p>Founded on: {{founded}}</p>
-            {{{body}}}
-          </div>
-        </template> -->
-
       </section>
       <section id="about" class="tab-content">
         <header>

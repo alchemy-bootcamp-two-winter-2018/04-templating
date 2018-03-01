@@ -2,6 +2,9 @@
 
 const articles = [];
 
+const templateElement = $('#article');
+const template = Handlebars.compile(templateElement.html());
+
 function Article(rawDataObj) {
     this.author = rawDataObj.author;
     this.authorUrl = rawDataObj.authorUrl;
@@ -19,15 +22,16 @@ function Article(rawDataObj) {
 }
 
 Article.prototype.toHtml = function () {
-    // TODO: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
+    // TODOne: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
+    return template(this);
 
-
-    // TODO: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
+    // TODOne: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
 
 };
 
 // COMMENT: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
-// PUT YOUR RESPONSE HERE
+// There must be parenthesis when using the arrow function when there are zero parameters or more than one. If there is only one you can skip the parenthesis.
+
 rawData.sort((a, b) => {
     return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
