@@ -45,13 +45,29 @@
             </li>
           </ul>
         </div>
-        
         <!--
         TODO: Add a template element for your articles.
             - Be sure to give it a meaningful id attribute.
             - Insert placeholder keys for Handlebars to replace.
             - If your object doesn't have values you need yet, you can add those properties in the model.
         -->
+
+        <template id="article-template">
+          <article data-js-category="{{category}}">
+            <header>
+              <h1>{{title}}</h1>
+              <div class="byline">
+                By <address><a href="{{authorUrl}}">{{author}}</a></address>
+                published <time pubdate datetime="2000-01-01">{{publishedOn}}</time>
+              </div>
+            </header>
+            <section class="article-body">
+              {{{body}}}
+            </section>
+            <a href="#" class="read-on">Read on &rarr;</a>
+            <a href="#" class="read-less" style="display: none">Hide article &rarr;</a>
+          </article>  
+        </template>
 
 
       </section>
