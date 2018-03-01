@@ -47,12 +47,23 @@
         </div>
         
         <!--
-        TODO: Add a template element for your articles.
+        TODOne: Add a template element for your articles.
             - Be sure to give it a meaningful id attribute.
             - Insert placeholder keys for Handlebars to replace.
             - If your object doesn't have values you need yet, you can add those properties in the model.
         -->
-
+      <template id="article-template">
+        <div>
+          <header>
+          <h1>{{title}}</h1>
+          <div class="byline">
+            By <address><a href={{authorUrl}}>{{author}}</a></address>
+            {{publishStatus}}
+          </div>
+        </header>
+        <section class="article-body">{{{body}}}</section>
+        </div>
+      </template>
 
       </section>
       <section id="about" class="tab-content">
