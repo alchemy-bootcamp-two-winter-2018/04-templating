@@ -22,12 +22,12 @@ Article.prototype.toHtml = function () {
     // TODOne: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
     const template = $('#article-template').html();
     const templateRender = Handlebars.compile(template);
-    // TODO: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
+    // TODOne: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
     return templateRender(this);
 };
 
 // COMMENT: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
-// PUT YOUR RESPONSE HERE
+// Because sort has mutliple parameters, paerns are required unlike the forEach methods where we only have one parameter
 rawData.sort((a, b) => {
     return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
