@@ -2,7 +2,7 @@
 
 const articleView = {};
 
-// TODO: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
+// TODOne: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
 
 // COMMENT: How do arrow functions affect the context of "this"? How did you determine if a function could be refactored?
 // Arrow functions change this to be whatever is passed into them. I refactored where I didn't depend on this because otherwise it wouldn't make sense contextually.
