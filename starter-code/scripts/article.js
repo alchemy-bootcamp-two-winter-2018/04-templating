@@ -18,6 +18,9 @@ function Article(rawDataObj) {
     this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
 }
 
+const templateElement = $('#article-template');
+const template = Handlebars.compile(templateElement.html());
+
 Article.prototype.toHtml = function () {
     // TODO: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
 

@@ -9,16 +9,16 @@ const articleView = {};
 // would change the function to be called by nothing, and therefore 'window.'
 
 articleView.populateFilters = () => {
-    $('article').each(function () {
-        if (!$(this).hasClass('template')) {
-            let val = $(this).find('address a').text();
+    $('article').each((element) => {
+        if (!$(element).hasClass('template')) {
+            let val = $(element).find('address a').text();
             let optionTag = `<option value="${val}">${val}</option>`;
 
             if ($(`#author-filter option[value="${val}"]`).length === 0) {
                 $('#author-filter').append(optionTag);
             }
 
-            val = $(this).attr('data-category');
+            val = $(element).attr('data-category');
             optionTag = `<option value="${val}">${val}</option>`;
             if ($(`#category-filter option[value="${val}"]`).length === 0) {
                 $('#category-filter').append(optionTag);
