@@ -19,8 +19,9 @@ function Article(rawDataObj) {
 }
 
 Article.prototype.toHtml = function () {
-    // TODO: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
-
+    // TODONE?: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
+    const templateRef = $('#article-template');
+    const template = Handlebars.compile(templateRef.html());
 
     // TODO: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
 
