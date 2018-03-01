@@ -17,7 +17,7 @@ articleView.populateFilters = function() {
         $('#author-filter').append(optionTag);
       }
 
-      val = $(this).attr('data-category');
+      val = $(this).attr('data-js-category');
       optionTag = `<option value="${val}">${val}</option>`;
       if ($(`#category-filter option[value="${val}"]`).length === 0) {
         $('#category-filter').append(optionTag);
@@ -43,7 +43,7 @@ articleView.handleCategoryFilter = function() {
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
       $('article').hide();
-      $(`article[data-category="${$(this).val()}"]`).fadeIn();
+      $(`article[data-js-category="${$(this).val()}"]`).fadeIn();
     } else {
       $('article').fadeIn();
       $('article.template').hide();

@@ -45,8 +45,8 @@
             </li>
           </ul>
         </div>
-        <template id="articles-template" type="text/x-handlebars-template">
-          <article data-js-catergory="category">
+        <template id="article-template" type="text/x-handlebars-template">
+          <article data-js-category='{{category}}' data-js-author='{{author}}'>
           <header>   
             <h2>{{title}}</h2>
             <div class= "byline">
@@ -54,8 +54,8 @@
               <time pubdate datetime="2000-01-01">{{publishedOn}}</time>
             </div>
           </header>
-          <section class= "article-body">{{body}}</section>
-          <a href=# class= "read on">Read on &rarr;</a>
+          <section class= "article-body">{{{body}}}</section>
+          <a href=# class= "read-on">Read on &rarr;</a>
           </article>
         </template>
         <!--
