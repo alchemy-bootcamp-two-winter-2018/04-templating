@@ -1,6 +1,6 @@
 'use strict';
 
-let articleView = {};
+const articleView = {};
 
 // TODOne: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
 
