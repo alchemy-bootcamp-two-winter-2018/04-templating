@@ -15,9 +15,10 @@ ul {
     justify-content: flex-start;
 }
 
-.teaser-toggle {
+a.read-on {
     display: block;
     margin-top: 1rem;
+    font-size: 1.5rem;
 }
 
 #filters {
