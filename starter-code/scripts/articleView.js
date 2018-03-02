@@ -8,47 +8,33 @@ let articleView = {};
 // PUT YOUR RESPONSE HERE
 
 articleView.populateFilters = () => {
+
+    function populateFilterOptions(article, dataAttr, selectedID) {
+        const data = $(article).attr(dataAttr);
+
+        if ($(`${selectedID} option[value="${data}"]`).length === 0) {
+            const optionTag = `<option value="${data}">${data}</option>`;
+            $(selectedID).append(optionTag);
+        }
+    }
+
     $('article').each(function() {
-        if (!$(this).hasClass('template')) {
-            let val = $(this).find('address a').text();
-            let optionTag = `<option value="${val}">${val}</option>`;
-
-            if ($(`#author-filter option[value="${val}"]`).length === 0) {
-                $('#author-filter').append(optionTag);
-            }
-
-            val = $(this).attr('data-js-category');
-            optionTag = `<option value="${val}">${val}</option>`;
-            if ($(`#category-filter option[value="${val}"]`).length === 0) {
-                $('#category-filter').append(optionTag);
-            }
-        }
+        populateFilterOptions(this, 'data-js-author', '#author-filter');
+        populateFilterOptions(this, 'data-js-category', '#category-filter');
     });
 };
 
-articleView.handleAuthorFilter = () => {
-    $('#author-filter').on('change', function () {
+articleView.handleFilters = function (filterID, dataAttr, otherID) {
+    $(filterID).on('change', function () {
+        console.log('I am listening');
         if ($(this).val()) {
             $('article').hide();
-            $(`article[data-js-author="${$(this).val()}"]`).fadeIn();
+            $(`article[${dataAttr}="${$(this).val()}"]`).fadeIn();
         } else {
             $('article').fadeIn();
             $('article.template').hide();
         }
-        $('#category-filter').val('');
-    });
-};
-
-articleView.handleCategoryFilter = () => {
-    $('#category-filter').on('change', function () {
-        if ($(this).val()) {
-            $('article').hide();
-            $(`article[data-js-category="${$(this).val()}"]`).fadeIn();
-        } else {
-            $('article').fadeIn();
-            $('article.template').hide();
-        }
-        $('#author-filter').val('');
+        $(otherID).val('');
     });
 };
 
@@ -80,8 +66,8 @@ articleView.setTeasers = () => {
 
 $(document).ready(() => {
     articleView.populateFilters();
-    articleView.handleCategoryFilter();
-    articleView.handleAuthorFilter();
+    articleView.handleFilters('#author-filter', 'data-js-author', '#category-filter');
+    articleView.handleFilters('#category-filter', 'data-js-category', '#author-filter');
     articleView.handleMainNav();
     articleView.setTeasers();
 });
