@@ -10,7 +10,7 @@ const articleView = {};
 articleView.populateFilters = () => {
 
     function filterOptions(article, dataType, filterId) {
-        const data = $(article).attr(dataAttr);
+        const data = $(article).attr(dataType);
 
         if ($(`${filterId} option[value="${data}"]`).length === 0) {
             const optionNode = `<option value="${data}">${data}</option>`;
@@ -19,9 +19,8 @@ articleView.populateFilters = () => {
     }
 
     $('article').each( (index, element) => {
-
-        filterOptions(this, 'data-js-author', '#author-filter');
-        filterOptions(this, 'data-js-category', '#category-filter');
+        filterOptions(element, 'data-js-author', '#author-filter');
+        filterOptions(element, 'data-js-category', '#category-filter');
     });
 };
 
