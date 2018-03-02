@@ -19,18 +19,16 @@ function Article(rawDataObj) {
 }
 
 Article.prototype.toHtml = function () {
-    // TODONE?: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
+    // TODONE: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
     const templateRef = $('#article-template');
     const template = Handlebars.compile(templateRef.html());
-    // TODONE?: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
+    // TODONE: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
     return template(this);
 };
 
 // COMMENT: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
-// PUT YOUR RESPONSE HERE
-rawData.sort((a, b) => {
-    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+// Two parameters have parentheses around them, but when it's only one parameter the parentheses can be omitted.
+rawData.sort((a, b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
 
 rawData.forEach(articleObject => {
     articles.push(new Article(articleObject));
