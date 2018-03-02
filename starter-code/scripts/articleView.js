@@ -1,11 +1,11 @@
 'use strict';
 
-let articleView = {};
+const articleView = {};
 
 // TODO: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
 
 // COMMENT: How do arrow functions affect the context of "this"? How did you determine if a function could be refactored?
-// The arrow function makes it so the function no longer knows what 'this' is. So when using arrow functions make sure to take into account all the 'this's. 
+// The arrow function makes it so the function no longer knows what 'this' is. So when using arrow functions make sure to take into account all the 'this's.
 
 articleView.populateFilters = () => {
 
@@ -26,7 +26,6 @@ articleView.populateFilters = () => {
 
 articleView.handleFilters = function (filterID, dataAttr, otherID) {
     $(filterID).on('change', function () {
-        console.log('I am listening');
         if ($(this).val()) {
             $('article').hide();
             $(`article[${dataAttr}="${$(this).val()}"]`).fadeIn();

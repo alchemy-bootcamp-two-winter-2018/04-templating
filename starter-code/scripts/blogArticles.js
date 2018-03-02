@@ -1,6 +1,6 @@
 'use strict';
 
-let rawData = [
+const rawData = [ // eslint-disable-line
     {
         title:       'Bacon Ipsum',
         category:    'food',
