@@ -23,29 +23,12 @@ articleView.populateFilters = () => {
     });
 };
 
-//     $('article').each((index, article) => {
-//         if (!$(article).hasClass('template')) {
-//             let val = $(article).find('address a').text();
-//             let optionTag = `<option value="${val}">${val}</option>`;
-
-//             if ($(`#author-filter option[value="${val}"]`).length === 0) {
-//                 $('#author-filter').append(optionTag);
-//             }
-
-//             val = $(article).attr('data-js-category');
-//             optionTag = `<option value="${val}">${val}</option>`;
-//             if ($(`#category-filter option[value="${val}"]`).length === 0) {
-//                 $('#category-filter').append(optionTag);
-//             }
-//         }
-//     });
-// };
-
 articleView.handleAuthorFilter = () => {
-    $('#author-filter').on('change', (event) => {
-        if ($(event).val()) {
+    $('#author-filter').on('change', (e) => {
+        event.preventDefault();
+        if ($(e.currentTarget).val()) {
             $('article').hide();
-            $(`article[data-js-author="${$(event).val()}"]`).fadeIn();
+            $(`article[data-js-author="${$(e.currentTarget).val()}"]`).fadeIn();
         } else {
             $('article').fadeIn();
             $('article.template').hide();
@@ -55,10 +38,11 @@ articleView.handleAuthorFilter = () => {
 };
 
 articleView.handleCategoryFilter = () => {
-    $('#category-filter').on('change', (event)=> {
-        if ($(event).val()) {
+    $('#category-filter').on('change', (e)=> {
+        event.preventDefault();
+        if ($(e.currentTarget).val()) {
             $('article').hide();
-            $(`article[data-js-category="${$(event).val()}"]`).fadeIn();
+            $(`article[data-js-category="${$(e.currentTarget).val()}"]`).fadeIn();
         } else {
             $('article').fadeIn();
             $('article.template').hide();
