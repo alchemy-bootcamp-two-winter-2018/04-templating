@@ -22,7 +22,7 @@ function Article(rawDataObj) {
 const templateElement = $('#article-template');
 const template = Handlebars.compile(templateElement.html());
 
-Article.prototype.toHtml = function () {    
+Article.prototype.toHtml = function () {
     // TODONE: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
     return template(this);
 
