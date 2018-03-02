@@ -8,23 +8,38 @@ const articleView = {};
 // "This" doesn't work in the same way because the arrow function is non-context. I was able to refactor every function.
 
 articleView.populateFilters = () => {
-    $('article').each((index, article) => {
-        if (!$(article).hasClass('template')) {
-            let val = $(article).find('address a').text();
-            let optionTag = `<option value="${val}">${val}</option>`;
+    function populateFilterOptions (article, dataAttr, selectFilterId) {
+        const data = $(article).attr(dataAttr);
 
-            if ($(`#author-filter option[value="${val}"]`).length === 0) {
-                $('#author-filter').append(optionTag);
-            }
-
-            val = $(article).attr('data-js-category');
-            optionTag = `<option value="${val}">${val}</option>`;
-            if ($(`#category-filter option[value="${val}"]`).length === 0) {
-                $('#category-filter').append(optionTag);
-            }
+        if ($(`${selectFilterId} option[value="${data}"]`).length === 0); {
+            const optionTag = `<option value="${data}">${data}</option>`;
+            $(selectFilterId).append(optionTag);
         }
+    }
+
+    $('article').each(function() {
+        populateFilterOptions(this, 'data-js-author', '#author-filter');
+        populateFilterOptions(this, 'data-js-category', '#category-filter');
     });
 };
+
+//     $('article').each((index, article) => {
+//         if (!$(article).hasClass('template')) {
+//             let val = $(article).find('address a').text();
+//             let optionTag = `<option value="${val}">${val}</option>`;
+
+//             if ($(`#author-filter option[value="${val}"]`).length === 0) {
+//                 $('#author-filter').append(optionTag);
+//             }
+
+//             val = $(article).attr('data-js-category');
+//             optionTag = `<option value="${val}">${val}</option>`;
+//             if ($(`#category-filter option[value="${val}"]`).length === 0) {
+//                 $('#category-filter').append(optionTag);
+//             }
+//         }
+//     });
+// };
 
 articleView.handleAuthorFilter = () => {
     $('#author-filter').on('change', (event) => {
