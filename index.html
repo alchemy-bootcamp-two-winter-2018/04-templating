@@ -33,42 +33,20 @@
     </header>
     <main>
       <section id="articles" class="tab-content">
-        <!-- <div>
-          <ul id="filters">
-            <li>
-
-              <template id="author-filter-template">
-                <select id="author-filter">
-                  <option value="">-- Filter by Authors --</option>
-                  {{{options}}}
-                </select>
-              </template>
-
-            </li>
-            <li>
-
-              <template id="category-filter-template">              
-                <select id="category-filter">
-                  <option value="">-- Filter by Categories --</option>
-                  {{{options}}}                  
-                </select>
-              </template>
-
-            </li>
-          </ul>
-        </div> -->
         <div>
           <ul id="filters">
-            <li>
-              <select id="author-filter">
-                <option value="">-- Filter by Authors --</option>
-              </select>
-            </li>
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
-            </li>
+
+            <template id="filter-template">
+              <li>
+                <select id="{{filterId}}">
+                  <option value="">-- Filter by {{filterType}} --</option>
+                  {{#each options}}
+                    <option value="{{this}}">{{this}}</option>
+                  {{/each}}
+                </select>
+              </li>
+            </template>
+            
           </ul>
         </div>
 

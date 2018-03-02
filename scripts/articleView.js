@@ -7,44 +7,31 @@ const articleView = {};
 // COMMENT: How do arrow functions affect the context of "this"? How did you determine if a function could be refactored?
 // An arrow function doesn't have a 'this' of its own - its definition of 'this' is borrowed from whatever function encloses it. I honestly started by replacing all the anonymous functions with arrow functions, starting within the methods of articleView and moving to the methods themselves. Arrow functions broke my page in all the event handlers. They worked, however, in the methods, though the MDN page describes them as best suited to non-method functions. I'm guessing this is because it's common for methods to reference the object they're part of using 'this', which these don't.
 
-articleView.populateFilters = () => {
-    $('article').each(function() {
-        if (!$(this).hasClass('template')) {
-            let val = $(this).find('address a').text();
-            let optionTag = `<option value="${val}">${val}</option>`;
+articleView.populateFilters = (filterType, filterId, dataAttr) => {
+    const filterObject = {
+        options: [],
+        filterType: filterType,
+        filterId: filterId
+    };
 
-            if ($(`#author-filter option[value="${val}"]`).length === 0) {
-                $('#author-filter').append(optionTag);
-            }
-
-            val = $(this).attr('data-category');
-            optionTag = `<option value="${val}">${val}</option>`;
-            if ($(`#category-filter option[value="${val}"]`).length === 0) {
-                $('#category-filter').append(optionTag);
-            }
+    function collectFilterOptions(thisArticle, dataAttr) {
+        const optionTag = $(thisArticle).attr(dataAttr);
+        if (!filterObject.options.includes(optionTag)) {
+            filterObject.options.push(optionTag);
         }
+    }
+
+    $('article').each(function() {
+        collectFilterOptions(this, dataAttr);
     });
+
+    const template = $('#filter-template').html();
+    const templateRender = Handlebars.compile(template);
+
+    $('#filters').append(templateRender(filterObject));
 };
-// articleView.populateFilters = () => {
-//     $('article').each(function() {
-//         if (!$(this).hasClass('template')) {
-//             let val = $(this).find('address a').text();
-//             let optionTag = `<option value="${val}">${val}</option>`;
 
-//             if ($(`#author-filter option[value="${val}"]`).length === 0) {
-//                 $('#author-filter').append(optionTag);
-//             }
-
-//             val = $(this).attr('data-category');
-//             optionTag = `<option value="${val}">${val}</option>`;
-//             if ($(`#category-filter option[value="${val}"]`).length === 0) {
-//                 $('#category-filter').append(optionTag);
-//             }
-//         }
-//     });
-// };
-
-articleView.handleAuthorFilter = () => {
+articleView.handleAuthorFilter = function() {
     $('#author-filter').on('change', function() {
         if ($(this).val()) {
             $('article').hide();
@@ -97,9 +84,10 @@ articleView.setTeasers = () => {
 };
 
 $(document).ready(() => {
-    articleView.populateFilters();
-    articleView.handleCategoryFilter();
+    articleView.populateFilters('Authors', 'author-filter', 'data-author');
+    articleView.populateFilters('Categories', 'category-filter', 'data-category');
     articleView.handleAuthorFilter();
+    articleView.handleCategoryFilter();
     articleView.handleMainNav();
     articleView.setTeasers();
 });
