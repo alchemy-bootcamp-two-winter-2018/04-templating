@@ -14,3 +14,8 @@
 article p{
     display:flow-root;
 }
+
+article a, a:visited{
+    text-decoration: none;
+    color: darkgray;
+}
