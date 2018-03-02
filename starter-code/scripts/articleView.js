@@ -5,9 +5,9 @@ const articleView = {};
 // TODO: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
 
 // COMMENT: How do arrow functions affect the context of "this"? How did you determine if a function could be refactored?
-// PUT YOUR RESPONSE HERE
+// Arrow functions take the context of "this"  where they are defined, and if a function has multiple instances of "this" in it, that function is not a good candidate for refactoring with an arrow function.
 
-articleView.populateFilters = function() {
+articleView.populateFilters = () => {
     $('article').each(function() {
         if (!$(this).hasClass('template')) {
             let val = $(this).find('address a').text();
@@ -26,7 +26,7 @@ articleView.populateFilters = function() {
     });
 };
 
-articleView.handleAuthorFilter = function() {
+articleView.handleAuthorFilter = () => {
     $('#author-filter').on('change', function() {
         if ($(this).val()) {
             $('article').hide();
@@ -39,7 +39,7 @@ articleView.handleAuthorFilter = function() {
     });
 };
 
-articleView.handleCategoryFilter = function() {
+articleView.handleCategoryFilter = () => {
     $('#category-filter').on('change', function() {
         if ($(this).val()) {
             $('article').hide();
@@ -52,7 +52,7 @@ articleView.handleCategoryFilter = function() {
     });
 };
 
-articleView.handleMainNav = function() {
+articleView.handleMainNav = () => {
     $('.main-nav').on('click', '.tab', function() {
         $('.tab-content').hide();
         $(`#${$(this).data('content')}`).fadeIn();
@@ -61,7 +61,7 @@ articleView.handleMainNav = function() {
     $('.main-nav .tab:first').click();
 };
 
-articleView.setTeasers = function() {
+articleView.setTeasers = () => {
     $('.article-body *:nth-of-type(n+2)').hide();
     $('article').on('click', 'a.read-on', function(e) {
         e.preventDefault();
@@ -78,7 +78,7 @@ articleView.setTeasers = function() {
     });
 };
 
-$(document).ready(function() {
+$(document).ready(() => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
     articleView.handleAuthorFilter();
