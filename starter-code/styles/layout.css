@@ -1,0 +1,16 @@
+
+.blog-post {
+    display: flow-root;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float:left;
+}
+
+main {
+    padding-top: 11em;
+}
