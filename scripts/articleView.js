@@ -8,21 +8,20 @@ const articleView = {};
 // Arrow functions do not have a 'this', and cannot be used as constructors.  MDN points on that they are best used in non-methods, which I definitely understand after refactoring a few of these methods, though they mostly reference the DOM rather than the object.  This allows a 'this' inheritance in nested arrow functions, which is super cool.  Arrow functions also do not have their own arguments object, so they can reference those in the outer scope.  This is all super complicated and interesting.
 
 articleView.populateFilters = () => {
-    $('article').each( (index, element) => {
-        if (!$(element).hasClass('template')) {
-            let val = $(element).find('address a').text();
-            let optionTag = `<option value="${val}">${val}</option>`;
 
-            if ($(`#author-filter option[value="${val}"]`).length === 0) {
-                $('#author-filter').append(optionTag);
-            }
+    function filterOptions(article, dataType, filterId) {
+        const data = $(article).attr(dataAttr);
 
-            val = $(element).attr('data-js-category');
-            optionTag = `<option value="${val}">${val}</option>`;
-            if ($(`#category-filter option[value="${val}"]`).length === 0) {
-                $('#category-filter').append(optionTag);
-            }
+        if ($(`${filterId} option[value="${data}"]`).length === 0) {
+            const optionNode = `<option value="${data}">${data}</option>`;
+            $(filterId).append(optionNode);
         }
+    }
+
+    $('article').each( (index, element) => {
+
+        filterOptions(this, 'data-js-author', '#author-filter');
+        filterOptions(this, 'data-js-category', '#category-filter');
     });
 };
 
