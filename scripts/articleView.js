@@ -59,7 +59,7 @@ articleView.handleMainNav = () => {
         $(`#${$(event.currentTarget).attr('data-content')}`).fadeIn();
     });
 
-   $('.main-nav .tab:first').click();
+    $('.main-nav .tab:first').click();
 };
 
 articleView.setTeasers = () => {
