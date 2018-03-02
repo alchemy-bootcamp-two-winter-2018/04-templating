@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable */
 let rawData = [
   {
     title:       'Bacon Ipsum',
