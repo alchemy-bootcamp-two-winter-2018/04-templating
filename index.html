@@ -20,12 +20,14 @@
         <h2>The shocking power of static pages</h2>
       </section>
       <nav class="main-nav">
-        <div class="icon-menu"></div>
         <ul>
-          <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
-          <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
-          <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
-          <li><a href="http://github.com/brookr" target="_blank" class="icon-github"> GitHub</a></li>
+          <div class="icon-menu"></div>
+          <section>
+            <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
+            <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
+            <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
+            <li><a href="http://github.com/brookr" target="_blank" class="icon-github"> GitHub</a></li>
+        </section>        
         </ul>
       </nav>
     </header>
@@ -33,26 +35,44 @@
       <section id="articles" class="tab-content">
         <div>
           <ul id="filters">
-            <li>
-              <select id="author-filter">
-                <option value="">-- Filter by Authors --</option>
-              </select>
-            </li>
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
-            </li>
+
+            <template id="filter-template">
+              <li>
+                <select id="{{filterId}}">
+                  <option value="">-- Filter by {{filterType}} --</option>
+                  {{#each options}}
+                    <option value="{{this}}">{{this}}</option>
+                  {{/each}}
+                </select>
+              </li>
+            </template>
+            
           </ul>
         </div>
-        
+
         <!--
-        TODO: Add a template element for your articles.
+        TODOne: Add a template element for your articles.
             - Be sure to give it a meaningful id attribute.
             - Insert placeholder keys for Handlebars to replace.
             - If your object doesn't have values you need yet, you can add those properties in the model.
         -->
 
+        <template id="article-template">
+          <article data-category="{{category}}" data-author="{{author}}">
+            <header>
+              <h1>{{title}}</h1>
+              <div class="byline">
+                By <address><a href="{{{authorUrl}}}">{{author}}</a></address>
+                <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
+              </div>
+            </header>
+            <section class="article-body clearfix">
+              {{{body}}}
+            </section>
+            <a href="#" class="read-on">Read on &rarr;</a>
+            <hr>
+            </article>
+        </template>
 
       </section>
       <section id="about" class="tab-content">
@@ -74,8 +94,8 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- TODO: Include Handlebars.JS from a CDN -->
-
+    <!-- TODOne: Include Handlebars.JS from a CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="scripts/blogArticles.js"></script>
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>

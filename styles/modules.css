@@ -1,0 +1,96 @@
+.icon-menu {
+    margin-right: 0.4rem;
+    font-size: 3rem;
+}
+
+.heading-group-h1 {
+    background-color: rgb(254, 234, 170);    
+    position: relative;
+    z-index: -1;
+    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+    top: 12.75rem;
+    margin-top: -12.75rem;    
+}
+
+.byline {
+    color: rgb(120, 120, 120);    
+}
+
+.byline a {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.main-nav section {
+    display: none;
+    width: 100%;
+    padding-top: 12.5rem;
+    margin-top: -3rem;    
+}
+
+.main-nav li {
+    border-bottom: solid 1px rgb(210, 210, 210);
+    padding: 1rem 0;
+    width: 100%;
+    background-color: rgb(254, 234, 170)   
+}
+
+.main-nav li:last-child {
+    padding: 0.5rem 0;
+    border: none;
+}
+
+.main-nav a {
+    padding-left: 0.4rem;
+}
+
+.icon-menu:hover + section {
+    display: block;
+}
+
+.main-nav section:hover {
+    display: block;
+}
+
+@media screen and (min-width: 513px) and (max-width: 640px) {
+    .site-header {
+        min-height: 21.5rem;    
+    }
+    .heading-group-h1 {
+        top: 10.75rem;
+        margin-top: -10.75rem;    
+    }
+    .main-nav section {
+        display: none;
+        width: 100%;
+        padding-top: 10.5rem;
+        margin-top: -3rem;    
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .icon-menu {
+        display: none;
+    }
+    .site-header {
+        min-height: unset;
+        background-color: rgb(254, 234, 170);
+        padding: 1.5rem 1.2rem 1.5rem 1.2rem;
+    }
+    .heading-group-h1 {
+        position: static;
+        margin: 0 0 2.5rem 0;   
+        padding: 0; 
+    }
+    .main-nav section {
+        display: block;
+        margin: 0;
+        padding: 0;  
+    }
+    .main-nav li {
+        display: inline;
+        border: none;
+        margin-left: 1rem;
+        background-color: transparent;
+    }
+}

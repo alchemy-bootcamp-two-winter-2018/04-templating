@@ -1,0 +1,26 @@
+.pull-right {
+    float: right;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+}
+
+.pull-left {
+    float: left;
+    padding: 1.5rem 1.5rem 1.5rem 0;    
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+a.read-on {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+#filters {
+    margin-top: 2rem;
+}
