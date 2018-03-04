@@ -5,7 +5,7 @@ const articleView = {};
 // TODOne: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
 
 // COMMENT: How do arrow functions affect the context of "this"? How did you determine if a function could be refactored?
-// PUT YOUR RESPONSE HERE
+// If 'this' is used an arrow function will lose it's context and so the 'this' context will become the window or undefined. I could use the arrow function on all the 'articleViewFunctions' because they hold a separate function inside that gives this context. In the first one 'article' is the context for 'this' not articleView therefore an arrow function can be used.
 
 articleView.populateFilters = () => {
     $('article').each(function() {
