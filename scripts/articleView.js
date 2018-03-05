@@ -2,9 +2,9 @@
 
 const articleView = {};
 
-// TODO: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
+// TODOne: Where possible, refactor methods into arrow functions, including the document.ready() method at the bottom.
 
-// COMMENT: How do arrow functions affect the context of "this"? How did you determine if a function could be refactored?
+// COMMENT: How arrow functions affect the context of "this"? How did you determine if a function could be refactored?
 // Arrow functions do not have a 'this', and cannot be used as constructors.  MDN points on that they are best used in non-methods, which I definitely understand after refactoring a few of these methods, though they mostly reference the DOM rather than the object.  This allows a 'this' inheritance in nested arrow functions, which is super cool.  Arrow functions also do not have their own arguments object, so they can reference those in the outer scope.  This is all super complicated and interesting.
 
 articleView.populateFilters = () => {
@@ -79,7 +79,7 @@ articleView.setTeasers = () => {
     });
 };
 
-$( () => {
+$(document).ready(() => {
     articleView.populateFilters();
     articleView.handleCategoryFilter();
     articleView.handleAuthorFilter();
