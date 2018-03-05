@@ -21,7 +21,7 @@
       </section>
       <nav class="main-nav">
         <div class="icon-menu"></div>
-        <ul>
+        <ul id="menu">
           <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
           <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
           <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
@@ -47,12 +47,25 @@
         </div>
         
         <!--
-        TODO: Add a template element for your articles.
+        TODOne: Add a template element for your articles.
             - Be sure to give it a meaningful id attribute.
             - Insert placeholder keys for Handlebars to replace.
             - If your object doesn't have values you need yet, you can add those properties in the model.
         -->
 
+        <template id="article" class="template">
+          <article data-category='{{category}}' data-author='{{author}}'>
+            <header>
+              <h1>{{title}}</h1>
+              <div class="byline">
+                By <address><a href='{{authorUrl}}'>{{author}}</a></address>
+                published on <time pubdate datetime="2000-01-01">{{publishedOn}}</time>
+              </div>
+            </header>
+            <section class="article-body">{{{body}}}</section>
+            <a href="#" class="read-on">Read on &rarr;</a>
+          </article>
+      </template>
 
       </section>
       <section id="about" class="tab-content">
@@ -74,8 +87,8 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- TODO: Include Handlebars.JS from a CDN -->
-
+    <!-- TODOne: Include Handlebars.JS from a CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
     <script src="scripts/blogArticles.js"></script>
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
