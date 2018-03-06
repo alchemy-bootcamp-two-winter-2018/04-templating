@@ -1,0 +1,21 @@
+
+.blog-post {
+    display: flow-root;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float:left;
+}
+
+article p{
+    display:flow-root;
+}
+
+article a, a:visited{
+    text-decoration: none;
+    color: darkgray;
+}
