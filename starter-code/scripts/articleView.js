@@ -7,7 +7,7 @@ const articleView = {};
 // COMMENT: How do arrow functions affect the context of "this"? How did you determine if a function could be refactored?
 // The arrow function is going to "unbind" the "this" from it's original designation. Seeing if things are overly complicated, if there are redundencies, or if multiple functions do near similar things.
 
-articleView.populateFilters = () => {
+articleView.populateFilters = function() {
     $('article').each(function() {
         if (!$(this).hasClass('template')) {
             let val = $(this).find('address a').text();
@@ -26,11 +26,11 @@ articleView.populateFilters = () => {
     });
 };
 
-articleView.handleAuthorFilter = () => {
+articleView.handleAuthorFilter = function() {
     $('#author-filter').on('change', function() {
         if ($(this).val()) {
             $('article').hide();
-            $(`article[data-author="${$(this).val()}"]`).fadeIn();
+            $(`article[data-js-author="${$(this).val()}"]`).fadeIn();
         } else {
             $('article').fadeIn();
             $('article.template').hide();
@@ -39,7 +39,7 @@ articleView.handleAuthorFilter = () => {
     });
 };
 
-articleView.handleCategoryFilter = () => {
+articleView.handleCategoryFilter = function() {
     $('#category-filter').on('change', function() {
         if ($(this).val()) {
             $('article').hide();
@@ -52,7 +52,7 @@ articleView.handleCategoryFilter = () => {
     });
 };
 
-articleView.handleMainNav = () => {
+articleView.handleMainNav = function() {
     $('.main-nav').on('click', '.tab', function() {
         $('.tab-content').hide();
         $(`#${$(this).data('content')}`).fadeIn();
@@ -61,7 +61,7 @@ articleView.handleMainNav = () => {
     $('.main-nav .tab:first').click();
 };
 
-articleView.setTeasers = () => {
+articleView.setTeasers = function() {
     $('.article-body *:nth-of-type(n+2)').hide();
     $('article').on('click', 'a.read-on', function(e) {
         e.preventDefault();
